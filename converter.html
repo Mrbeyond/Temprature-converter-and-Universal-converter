@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>BASIC TEMPERATURE CONVERTER</title>
+<style>
+	#converter{
+		text-align: center;}	
+</style>
+</head>
+<body>
+<br><br>
+ <!--BEGINNING OF TEMP CONVERSION-->
+<form style="margin-left: 200px" >
+	<fieldset style="box-sizing: border-box; padding-left:70px; width: 37%; height: 300px; align-content: center; background-color: #088080;"  >
+		<legend style="align-items: center; background-color: white">Temperature Converter</legend><br><br><br>
+<!--BOX ONE-->
+		<select id="boxa"  onchange="clrs()">
+			<option>Celsius</option>
+			<option> Kelvin</option>
+			<option>Fahrenheit</option>
+		</select> &nbsp; &nbsp;
+			<!--MAIN INPUT-->
+			<input type="number" id="maininput">
+		<br><br>
+	<!--BOX TWO-->
+		<select id="boxb" onchange="clrs()">
+			<option>Celsius</option>
+			<option> Kelvin</option>
+			<option>Fahrenheit</option>
+		</select> &nbsp; &nbsp;
+		<!--RESULT BOX-->
+		<input disabled="" id="result"><br><br>
+		<!--CONVERT BUTTON-->
+		<button type="button" id="converter" onclick="now()" align="center" style="padding-left: 95px; padding-right:95px;"> Convert Now </button>
+	</fieldset>
+<!--BEGINNING OF SCRIPT CODE FOR CONVERSION-->
+<script type="text/javascript">
+	//DECLARATION OF VARIABLES
+	var one, two;
+	one = boxa.value;
+	two = boxb.value;
+	maininput.value='';
+	//BEGINNING OF FUNCTION.
+	function now(){
+	one = boxa.value;
+	two = boxb.value;
+	result.value = "";
+	maininput.focus();
+
+	if (one=="Celsius" && two=="Celsius"){
+		 		result.value =  parseFloat(maininput.value) +" " +"Degree(s)";
+		 				 		}
+
+	if (one=="Celsius" && two=="Kelvin"){
+		 		result.value =  parseFloat(parseFloat(maininput.value) +(273)) +"K";}
+
+	if (one=="Celsius" && two=="Fahrenheit"){
+		 		result.value =  parseFloat(parseFloat(maininput.value) *(1.8) + 32) +"F";}	 
+
+	if (one=="Kelvin" && two=="Celsius"){
+		 		result.value =  parseFloat(parseFloat(maininput.value) -273) +" "+"Degree(s)";}
+
+	if(one=="Kelvin" && two=="Kelvin"){
+		 		result.value =  parseFloat(maininput.value)+"K";}
+
+	if(one=="Kelvin" && two=="Fahrenheit"){
+		 		result.value = parseFloat((parseFloat(maininput.value)-273)*(1.8)+32) + "F";}
+
+	if(one=="Fahrenheit" && two=="Kelvin"){
+		 		result.value = parseFloat(((parseFloat(maininput.value)-32)/1.8) +273) +"F";}
+
+	if(one=="Fahrenheit" && two=="Celsius"){
+		 		result.value =  parseFloat((parseFloat(maininput.value)-32)/1.8) +" "+"Degree(s)"}
+
+	if(one=="Fahrenheit" && two=="Fahrenheit"){
+		 		result.value =  parseFloat(maininput.value)+" "+"K";}
+	
+	if (maininput.value==""){
+		 		alert("Please enter a valid number value to be converted");
+		 		result.value="";}	
+								}
+	function clrs(){
+		result.value="";}
+
+</script>
+<!--MANY CONVERSION OPTION-->
+<br><br><br>
+<!--CONVERSION TYPE-->
+	<fieldset  style="box-sizing: border-box; padding-left:70px; width: 37%; height: 300px; align-content: center; background-color: #088080;  border-radius: 30px;">
+		<legend style="align-items: center; background-color: white" >UNIVERSAL CONVERTER</legend>
+		<br><span style="background-color: white; margin-left: -32px; padding: 0px,40px; font-family: sans-serif;">Please select a category in the select box below</span><br><br>
+		<select  id="head" style="padding-left: 30px; margin-left: 40px" onchange="showdistanceoptions()">
+			<option id="sele">SELECT</option>
+			<option id="distance">DISTANCE</option>
+			<option id="Temperature">TEMPERATURE</option>
+			<option id="currency" >CURRENCY</option>
+			<option id="weight">WEIGHT</option>	
+
+		</select>
+		<br><br> 
+			<!--SCRIPT FOR CALLING CONVERSION OPTRIONS-->
+ <script type="text/javascript">
+
+					var option=head.value;				
+				// DISTANCE FUNCTION
+				function showdistanceoptions(){
+					option = head.value;
+					if (option=="DISTANCE"){ 
+								document.getElementById("temp").style.display="none";
+								document.getElementById("money").style.display="none";
+								document.getElementById("mass").style.display="none";
+								document.getElementById("dist").style.display="block";
+						}
+					if (option=="TEMPERATURE"){
+								document.getElementById("dist").style.display="none";
+								document.getElementById("mass").style.display="none";
+								document.getElementById("money").style.display="none";
+								document.getElementById("temp").style.display="block";
+						}
+					if (option=="CURRENCY"){
+								document.getElementById("dist").style.display="none";
+								document.getElementById("mass").style.display="none";
+								document.getElementById("temp").style.display="none";
+								document.getElementById("money").style.display="block";
+						}
+					if (option=="WEIGHT"){
+								document.getElementById("dist").style.display="none";
+								document.getElementById("money").style.display="none";
+								document.getElementById("temp").style.display="none";
+								document.getElementById("mass").style.display="block";
+						}
+					if (option=="SELECT"){
+						        document.getElementById("dist").style.display="none";
+								document.getElementById("money").style.display="none";
+								document.getElementById("temp").style.display="none";
+								document.getElementById("mass").style.display="none";
+						alert("Please select an option to be converted in the select box");}	
+				}
+	</script>
+
+<!--DISTANCE DIV-->
+	<div id="dist" style="display:  none">
+<!--Distance input options-->
+		<select id="dista">
+			<option>kilometer</option>
+			<option>Inch</option>
+			<option>Mile</option>
+			<option>Feet</option>
+			<option>Meter</option>
+			<option>Centimeter</option>
+			<option>Millimeter</option>
+			<option>Yard</option>
+		</select>
+<!--Distance input box-->
+		<input type="number" id="dinput"> <br><br>
+
+<!--Distance output options-->
+		<select id=distb>
+			<option>kilometer</option>
+			<option>Inch</option>
+			<option>Mile</option>
+			<option>Feet</option>
+			<option>Meter</option>
+			<option>Centimeter</option>
+			<option>Millimeter</option>
+			<option>Yard</option>
+		</select>
+<!--Distance Result box-->
+		<input disabled="" id="dresult"> 
+<!-- BEGINNING OF SCRIPT CODE FOR CONVERSION OF DISTANCE -->
+ <script type="text/javascript">
+	function distnow(){
+	var one, two;
+	one = dista.value;
+	two = distb.value;
+	dresult.value = "";
+
+//Beginning of kilometer
+	if (one=="kilometer" && two=="kilometer"){
+		 		dresult.value = parseFloat(dinput.value) +"km";}
+
+	if (one=="kilometer" && two=="Inch"){
+		 		dresult.value =  parseFloat(parseFloat(dinput.value) *(39370.078740157)) +"in";}
+
+	if (one=="kilometer" && two=="Mile"){
+		 		dresult.value =  parseFloat(parseFloat(dinput.value) *(0.6213711922) ) +"mi";}	 
+
+	if (one=="kilometer" && two=="Feet"){
+		 		dresult.value =  parseFloat(parseFloat(dinput.value) *(3280.8398950131))+"ft";}
+
+	if(one=="kilometer" && two=="Meter"){
+		 		dresult.value =  parseFloat(parseFloat(dinput.value) *1000)+"m";}
+
+	if(one=="kilometer" && two=="Centimeter"){
+		 		dresult.value = parseFloat(parseFloat(dinput.value)*(100000)) + "cm";}
+
+	if(one=="kilometer" && two=="Millimeter"){
+		 		dresult.value = parseFloat(parseFloat(dinput.value)* (1000000)) +"mm";}
+
+	if(one=="kilometer" && two=="Yard"){
+		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(1093.6132983377))+"yd";}
+//Beginning of inch		 		 		
+
+	if(one=="Inch" && two=="Inch"){
+		 		dresult.value =  parseFloat(dinput.value)+"in";}
+
+	if(one=="Inch" && two=="Kilometer"){
+		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(0.0000245)) +"km";}	
+
+	if(one=="Inch" && two=="Yard"){
+		 		dresult.value =  parseFloat( parseFloat(dinput.value)*(0.027777777777778))+"yd";}
+
+	if(one=="Inch" && two=="Feet"){
+		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(0.08333333333333))+"ft";}
+
+	if(one=="Inch" && two=="Meter"){
+		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(0.0245))+"m";}
+
+	if(one=="Inch" && two=="Centimeter"){
+		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(2.54))+"cm";}
+
+	if(one=="Inch" && two=="Millimeter"){
+		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(25.4))+"ft";}
+
+	if(one=="Inch" && two=="Mile"){
+		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(0.00001578282828282828))+"mi";}
+//Beginning of mile		 		
+	if(one=="Mile" && two=="Mile"){
+		 		dresult.value =  parseFloat(dinput.value) +"mi";}
+
+	if(one=="Mile" && two=="Kilometer"){
+				dresult.value = parseFloat(parseFloat(dinput.value)*(1.609344)) +"km";
+
+	if(one=="Mile" && two=="Meter"){
+		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(1609.344))+"m";} 
+
+ 	if(one=="Mile" && two=="Feet"){
+		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(5280))+"ft";}
+
+	if(one=="Mile" && two=="Yard"){
+		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(1760))+"km";}
+
+	if(one=="Mile" && two=="Centimeter"){
+		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(160934.4))+"cm";}
+
+	if(one=="Mile" && two=="Millimeter"){
+		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(1609344))+"mm";}	
+
+	if(one=="Mile" && two=="Inch"){
+		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(63360))+"in";} 	
+//Beginning of yard		 		
+	if(one=="Yard" && two=="Mile"){
+		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(0.00058681818181818182))+"mi";}
+
+	if(one=="Yard" && two=="Kilometer"){
+		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(0.0009144))+"km";}
+
+	if(one=="Yard" && two=="Meter"){
+		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(0.9144))+"m";}
+
+ 	if(one=="Yard" && two=="Feet"){
+		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(3))+"ft";}
+
+	if(one=="Yard" && two=="Yard"){
+		 		dresult.value =  parseFloat(dinput.value) +"yd";}
+
+	if(one=="Yard" && two=="Centimeter"){
+		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(91.44))+"cm";}
+
+	if(one=="Yard" && two=="Millimeter"){
+		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(914.4))+"mm";}	
+
+	if(one=="Yard" && two=="Inch"){
+		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(36))+"in";}
+//Beginning of Feet		 		
+	if(one=="Feet" && two=="Mile"){
+		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(0.000189393939393939394))+"mi";}
+
+	if(one=="Feet" && two=="kilometer"){
+		 		dresult.value = parseFloat(parseFloat(dinput.value)*(0.0003048))+"km";}
+
+	if(one=="Feet" && two=="Meter"){
+		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(0.3048))+"m";}
+
+ 	if(one=="Feet" && two=="Feet"){
+		 		dresult.value =  parseFloat(dinput.value) +"ft";}
+
+	if(one=="Feet" && two=="Yard"){
+		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(0.3333333333333333))+"yd";}
+
+	if(one=="Feet" && two=="Centimeter"){
+		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(30.48))+"cm";}
+
+	if(one=="Feet" && two=="Millimeter"){
+		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(304.8))+"mm";}	
+
+	if(one=="Feet" && two=="Inch"){
+		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(12))+"in";} 	
+
+//Beginning of Meter		 		
+	if(one=="Meter" && two=="Mile"){
+		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(0.00062137119223733))+"mi";}
+
+	if(one=="Meter" && two=="Kilometer"){
+		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(0.001))+"km";}
+
+	if(one=="Meter" && two=="Meter"){
+		 		dresult.value =  parseFloat(dinput.value) +"m";}
+
+ 	if(one=="Meter" && two=="Feet"){
+		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(3.2808398950131))+"ft";}
+
+	if(one=="Meter" && two=="Yard"){
+		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(1.0936132983377))+"yd";}
+
+	if(one=="Meter" && two=="Centimeter"){
+		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(100))+"cm";}
+
+	if(one=="Meter" && two=="Millimeter"){
+		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(1000))+"mm";}	
+
+	if(one=="Meter" && two=="Inch"){
+		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(39.370078740157))+"in";} 	
+
+//Beginning of Centimeter		 		
+	if(one=="Centimeter" && two=="Mile"){
+		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(0.0000062137119223733))+"mi";}
+
+	if(one=="Centimeter" && two=="Kilometer"){
+		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(0.00001))+"km";}
+
+	if(one=="Centimeter" && two=="Meter"){
+		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(0.01))+"m";}
+
+ 	if(one=="Centimeter" && two=="Feet"){
+		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(0.032808398950131))+"ft";}
+
+	if(one=="Centimeter" && two=="Yard"){
+		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(0.010936132983377))+"yd";}
+
+	if(one=="Centimeter" && two=="Centimeter"){
+		 		dresult.value =  parseFloat(dinput.value) +"cm";}
+
+	if(one=="Centimeter" && two=="Millimeter"){
+		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(10))+"mm";}	
+
+	if(one=="Centimeter" && two=="Inch"){
+		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(0.39370078740157))+"in";} 
+//Beginning of Milliimeter		 		
+	if(one=="Milliimeter" && two=="Mile"){
+		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(0.00000062137119223733))+"mi";}
+
+	if(one=="Milliimeter" && two=="Kilometer"){
+		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(0.000001))+"km";}
+
+	if(one=="Milliimeter" && two=="Meter"){
+		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(0.001))+"m";}
+
+ 	if(one=="Milliimeter" && two=="Feet"){
+		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(0.0032808398950131))+"ft";}
+
+	if(one=="Milliimeter" && two=="Yard"){
+		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(0.0010936132983377))+"yd";}
+
+	if(one=="Milliimeter" && two=="Centimeter"){
+		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(0.1))+"cm";}	
+
+	if(one=="Milliimeter" && two=="Millimeter"){
+		 		dresult.value =  parseFloat(dinput.value) +"mm";}
+
+	if(one=="Milliimeter" && two=="Inch"){
+		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(0.039370078740157))+"in";}
+
+if (dinput.value==""){
+		 		alert("Please enter a valid number value to be converted");
+		 		dresult.value=""}
+	}
+
+</script> 
+	<br><br><br>
+    	<button style="margin-left: 70px;" type="button" onclick="distnow()">Convert Now!</button>
+	</div>
+
+<!--TEMPERATURE DIV-->
+<div id="temp" style="display: none">
+
+<!--Temperature input options-->
+		<select id="tempa"  onchange="tempnow()">
+			<option>Celsius</option>
+			<option>Fahrenheit</option>
+			<option>Kelvin</option>
+		</select>
+<!--Temperature input box-->
+		<input type="number" id="tinput"> <br><br>
+
+<!--Temperature output options-->
+		<select id="tempb" onchange="tempnow()" >
+			<option>Celsius</option>
+			<option>Fahrenheit</option>
+			<option>Kelvin</option>			
+		</select>
+<!--Temperature Result box-->
+		<input disabled="" id="tresult"> 
+
+	<!--BEGINNING OF SCRIPT CODE FOR CONVERSION OF TEMPERATURE-->
+<script type="text/javascript">
+
+	//DECLARATION OF VARIABLES
+
+	//BEGINNING OF FUNCTION.
+	function tempnow(){
+	var one, two;
+	one = tempa.value;
+	two = tempb.value;
+	tresult.value = "";
+
+	if (one=="Celsius" && two=="Celsius"){
+		 		tresult.value =  parseFloat(tinput.value) +" " +"Degree(s)";}
+
+	if (one=="Celsius" && two=="Kelvin"){
+		 		tresult.value =  parseFloat(parseFloat(tinput.value) +(273)) +"K";}
+
+	if (one=="Celsius" && two=="Fahrenheit"){
+		 		tresult.value =  parseFloat(parseFloat(tinput.value) *(1.8) + 32) +"F";}	 
+
+	if (one=="Kelvin" && two=="Celsius"){
+		 		tresult.value =  parseFloat(parseFloat(tinput.value) -273) +" "+"Degree(s)";}
+
+	if(one=="Kelvin" && two=="Kelvin"){
+		 		tresult.value =  parseFloat(tinput.value)+"K";}
+
+	if(one=="Kelvin" && two=="Fahrenheit"){
+		 		tresult.value = parseFloat((parseFloat(tinput.value)-273)*(1.8)+32) + "F";}
+
+	if(one=="Fahrenheit" && two=="Kelvin"){
+		 		tresult.value = parseFloat(((parseFloat(tinput.value)-32)/1.8) +273) +"F";}
+
+	if(one=="Fahrenheit" && two=="Celsius"){
+		 		tresult.value =  parseFloat((parseFloat(tinput.value)-32)/1.8) +" "+"Degree(s)"}
+
+	if(one=="Fahrenheit" && two=="Fahrenheit"){
+		 		tresult.value =  parseFloat(tinput.value)+" "+"K";}
+	
+	if (tinput.value==""){
+		 		alert("Please enter a valid number value to be converted");
+		 		tresult.value="";}	
+								}
+</script>
+	<br><br><br>
+    	<button style="margin-left: 70px;" type="button" onclick="tempnow()">Convert Now!</button>
+	</div>
+
+<!-- CUTRRENCY DIV-->
+<div id="money" style="display: none">
+
+	<input type="number" name="" id="lrate" placeholder="Please enter Local rate" size="1"; style="margin-left: 
+	-50px;" onchange="">
+	<input type="number" name="" id="frate" placeholder="Please enter Foreign rate" size="1" onchange=""><br><br>
+
+<!--Currency input options-->
+		
+<!-- local box-->
+		<input type="number"  placeholder="Local Amount" id="lamount" title="Please enter Local Amount" onchange="mnynow()"> <br><br>
+<!-- Foreign box-->
+		<input type="number"  placeholder="Foreign Amount"  id="famount"  title="Please enter Foreign Amount" onchange="mnynow()" >
+
+
+<!-- BEGINNING OF SCRIPT CODE FOR CONVERSION OF CURRENCY -->
+<script type="text/javascript">
+	function mnynow(){
+	var lr, fr, la, fa;
+	lr=lrate.value;
+	fr=frate.value;
+	la=lamount.value;
+	fa=famount.value;
+                     
+    if (la!="" && fa==""){ if (lr =="" || fr ==""){alert("The value of both Local and Foreign rate are required");
+														                    fa=="";
+														                    la=="";}
+                   			 if(lr !="" || fr !=""){
+                   			 fa =4 }
+                   			 	//parseFloat((parseFloat(la)*parseFloat(fr)/parseFloat(lr)));
+                   		  } 
+
+    if (fa!='' && la==""){ if(lr =="" ||fr ==""){alert("The value of both Local and Foreign rate are required");
+                    fa=="";
+                    la=="";}
+    						if(lr !="" && fr !=""){la=parseFloat((parseFloat(lr)*parseFloat(fa)/parseFloat(fr)));}                
+    					  }
+					
+	if (la=="" && fa=="") {alert( "Plesae  enter both Rates and the Amount you want to convert");}
+
+	 				}
+</script> 
+	<br><br><br>
+   		 <button style="margin-left: 70px;" type="button" onclick="mnynow()" >Convert Now!</button> 
+	</div>  
+
+	<!--WEIGHT DIV-->
+<div id="mass" style="display: none">
+
+<!--Weight input options-->
+		<select id="massa" onchange="massnow()">
+			<option>Tone</option>
+			<option>Kilogram</option>
+			<option>Gram</option>
+			<option>Milligram</option>
+		</select>
+<!--Weight input box-->
+		<input type="number" id="minput" onchange="massnow()"> <br><br>
+
+<!--Weight output options-->
+		<select id="massb" onchange="massnow()">
+			<option>Tone</option>
+			<option>Kilogram</option>
+			<option>Gram</option>
+			<option>Milligram</option>			
+		</select>
+<!--Weight Result box-->
+		<input disabled="" id="mresult">
+<!-- BEGINNING OF SCRIPT CODE FOR CONVERSION OF WEIGHT -->
+<script type="text/javascript">
+	// IT SHOULD BE CHANGED TO DISTANCE FUNCTION
+
+	//DECLARATION OF VARIABLES
+	var one, two;
+	//BEGINNING OF FUNCTION.
+	function massnow(){
+	one = massa.value;
+	two = massb.value;
+	result.value = "";
+	minput.focus();
+//tone
+	if (one=="Tone" && two=="Tone"){
+		 		mresult.value =  parseFloat(minput.value)+"tn";}
+
+	if (one=="Tone" && two=="Kilogram"){
+		 		mresult.value =  parseFloat(parseFloat(minput.value) *(1000)) +"Kg";}
+
+	if (one=="Tone" && two=="Gram"){
+		 		mresult.value =  parseFloat(parseFloat(minput.value) *(1000000)) +"g";}
+
+	if (one=="Tone" && two=="Milligram"){
+		 		mresult.value =  parseFloat(parseFloat(minput.value) *(1000000000)) +"mg";}	
+//kilogram
+	if (one=="Kilogram" && two=="Kilogram"){
+		 		mresult.value =  parseFloat(minput.value)+"kg";}
+
+	if(one=="Kilogram" && two=="Tone"){
+		 		mresult.value =  parseFloat(parseFloat(minput.value)* (0.001)) +"tn";}
+
+	if(one=="Kilogram" && two=="Gram"){
+		 		mresult.value = parseFloat((parseFloat(minput.value)*(1000))) + "g";}
+
+	if (one=="Kilogram" && two=="Milligram"){
+		 		mresult.value =  parseFloat(parseFloat(minput.value) *(1000000)) +"mg";}
+//gram
+	if(one=="Gram" && two=="Gram"){
+		 		mresult.value =  parseFloat(minput.value)+"g";}
+
+	if(one=="Gram" && two=="Milligram"){
+		 		mresult.value =  parseFloat(parseFloat(minput.value)*(1000))+"mg"}
+
+	if(one=="Gram" && two=="Kilogram"){
+		 		mresult.value = parseFloat(parseFloat(minput.value)*(0.001)) +"kg";}
+
+	if (one=="Gram" && two=="Tone"){
+		 		mresult.value =  parseFloat(parseFloat(minput.value) *(0.000001)) +"tn";}
+//milligram	
+	if(one=="Milligram" && two=="Milligram"){
+		 		mresult.value =  parseFloat(minput.value)+"mg";}
+
+	if(one=="Milligram" && two=="Kilogram"){
+		 		mresult.value =  parseFloat(parseFloat(minput.value)*(0.000001))+"kg"}
+
+	if(one=="Milligram" && two=="Gram"){
+		 		mresult.value = parseFloat(parseFloat(minput.value)*(0.001)) +"g";}
+
+	if (one=="Milligram" && two=="Tone"){
+		 		mresult.value =  parseFloat(parseFloat(minput.value) *(0.000000001)) +"tn";}
+	
+	if (minput.value==""){
+		 		alert("Please enter a valid number value to be converted");
+		 		mresult.value=""};	
+	}
+
+								
+</script>
+<br><br><br>
+    <button style="margin-left: 70px;" type="button" onclick="massnow()">Convert Now!</button>
+	</div> 
+    
+	</fieldset>
+</form>
+</body>
+</html> 
