@@ -174,6 +174,7 @@
 	one = dista.value;
 	two = distb.value;
 	dresult.value = "";
+	dista.focus();
 
 //Beginning of kilometer
 	if (one=="kilometer" && two=="kilometer"){
@@ -413,6 +414,7 @@ if (dinput.value==""){
 	one = tempa.value;
 	two = tempb.value;
 	tresult.value = "";
+	tinput.focus();
 
 	if (one=="Celsius" && two=="Celsius"){
 		 		tresult.value =  parseFloat(tinput.value) +" " +"Degree(s)";}
@@ -473,19 +475,20 @@ if (dinput.value==""){
 	fr=frate.value;
 	la=lamount.value;
 	fa=famount.value;
+	lrate.focus();
                      
     if (la!="" && fa==""){ if (lr =="" || fr ==""){alert("The value of both Local and Foreign rate are required");
 														                    fa=="";
 														                    la=="";}
-                   			 if(lr !="" || fr !=""){
-                   			 fa =4 }
-                   			 	//parseFloat((parseFloat(la)*parseFloat(fr)/parseFloat(lr)));
+                   			 if(lr !="" && fr !=""){
+                   			 famount.value =parseFloat((parseFloat(la)*parseFloat(fr)/parseFloat(lr)));
+                   			  }
                    		  } 
 
     if (fa!='' && la==""){ if(lr =="" ||fr ==""){alert("The value of both Local and Foreign rate are required");
                     fa=="";
                     la=="";}
-    						if(lr !="" && fr !=""){la=parseFloat((parseFloat(lr)*parseFloat(fa)/parseFloat(fr)));}                
+    						if(lr !="" && fr !=""){famount.value=parseFloat((parseFloat(lr)*parseFloat(fa)/parseFloat(fr)));}                
     					  }
 					
 	if (la=="" && fa=="") {alert( "Plesae  enter both Rates and the Amount you want to convert");}
