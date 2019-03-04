@@ -167,6 +167,7 @@
 		</select>
 <!--Distance Result box-->
 		<input disabled="" id="dresult"> 
+
 <!-- BEGINNING OF SCRIPT CODE FOR CONVERSION OF DISTANCE -->
  <script type="text/javascript">
 	function distnow(){
@@ -376,8 +377,11 @@ if (dinput.value==""){
 		 		alert("Please enter a valid number value to be converted");
 		 		dresult.value=""}
 	}
+}
 
 </script> 
+
+
 	<br><br><br>
     	<button style="margin-left: 70px;" type="button" onclick="distnow()">Convert Now!</button>
 	</div>
@@ -488,7 +492,7 @@ if (dinput.value==""){
     if (fa!='' && la==""){ if(lr =="" ||fr ==""){alert("The value of both Local and Foreign rate are required");
                     fa=="";
                     la=="";}
-    						if(lr !="" && fr !=""){famount.value=parseFloat((parseFloat(lr)*parseFloat(fa)/parseFloat(fr)));}                
+    						if(lr !="" && fr !=""){lamount.value=parseFloat((parseFloat(lr)*parseFloat(fa)/parseFloat(fr)));}                
     					  }
 					
 	if (la=="" && fa=="") {alert( "Plesae  enter both Rates and the Amount you want to convert");}
