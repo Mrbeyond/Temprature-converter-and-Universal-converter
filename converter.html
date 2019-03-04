@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<script type="text/javascript" src="conversion.js"></script>
 <title>BASIC TEMPERATURE CONVERTER</title>
 <style>
 	#converter{
@@ -20,7 +21,7 @@
 			<option>Fahrenheit</option>
 		</select> &nbsp; &nbsp;
 			<!--MAIN INPUT-->
-			<input type="number" id="maininput">
+			<input type="number" id="maininput" onkeyup="now()">
 		<br><br>
 	<!--BOX TWO-->
 		<select id="boxb" onchange="clrs()">
@@ -200,9 +201,9 @@
 		 		dresult.value = parseFloat(parseFloat(dinput.value)* (1000000)) +"mm";}
 
 	if(one=="kilometer" && two=="Yard"){
-		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(1093.6132983377))+"yd";}
-//Beginning of inch		 		 		
+		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(1093.6132983377))+"yd";} 
 
+//Beginning of inch		 		 		
 	if(one=="Inch" && two=="Inch"){
 		 		dresult.value =  parseFloat(dinput.value)+"in";}
 
@@ -216,7 +217,7 @@
 		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(0.08333333333333))+"ft";}
 
 	if(one=="Inch" && two=="Meter"){
-		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(0.0245))+"m";}
+		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(0.0245))+"m";} 
 
 	if(one=="Inch" && two=="Centimeter"){
 		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(2.54))+"cm";}
@@ -228,10 +229,10 @@
 		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(0.00001578282828282828))+"mi";}
 //Beginning of mile		 		
 	if(one=="Mile" && two=="Mile"){
-		 		dresult.value =  parseFloat(dinput.value) +"mi";}
+		 		dresult.value =  parseFloat(dinput.value) +"mi";} 
 
 	if(one=="Mile" && two=="Kilometer"){
-				dresult.value = parseFloat(parseFloat(dinput.value)*(1.609344)) +"km";
+				dresult.value = parseFloat(parseFloat(dinput.value)*(1.609344)) +"km";} 
 
 	if(one=="Mile" && two=="Meter"){
 		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(1609.344))+"m";} 
@@ -240,7 +241,7 @@
 		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(5280))+"ft";}
 
 	if(one=="Mile" && two=="Yard"){
-		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(1760))+"km";}
+		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(1760))+"km";} 
 
 	if(one=="Mile" && two=="Centimeter"){
 		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(160934.4))+"cm";}
@@ -255,7 +256,7 @@
 		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(0.00058681818181818182))+"mi";}
 
 	if(one=="Yard" && two=="Kilometer"){
-		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(0.0009144))+"km";}
+		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(0.0009144))+"km";}  
 
 	if(one=="Yard" && two=="Meter"){
 		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(0.9144))+"m";}
@@ -329,7 +330,7 @@
 		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(0.0000062137119223733))+"mi";}
 
 	if(one=="Centimeter" && two=="Kilometer"){
-		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(0.00001))+"km";}
+		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(0.00001))+"km";} 
 
 	if(one=="Centimeter" && two=="Meter"){
 		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(0.01))+"m";}
@@ -376,8 +377,8 @@
 if (dinput.value==""){
 		 		alert("Please enter a valid number value to be converted");
 		 		dresult.value=""}
-	}
-}
+	} 
+
 
 </script> 
 
