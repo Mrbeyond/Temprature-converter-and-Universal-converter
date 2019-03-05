@@ -142,7 +142,7 @@
 <!--DISTANCE DIV-->
 	<div id="dist" style="display:  none">
 <!--Distance input options-->
-		<select id="dista">
+		<select id="dista" onchange="distnow()">
 			<option>kilometer</option>
 			<option>Inch</option>
 			<option>Mile</option>
@@ -153,10 +153,10 @@
 			<option>Yard</option>
 		</select>
 <!--Distance input box-->
-		<input type="number" id="dinput"> <br><br>
+		<input type="number" id="dinput" onkeyup="distnow()"> <br><br>
 
 <!--Distance output options-->
-		<select id=distb>
+		<select id=distb onchange="distnow()">
 			<option>kilometer</option>
 			<option>Inch</option>
 			<option>Mile</option>
@@ -176,7 +176,7 @@
 	one = dista.value;
 	two = distb.value;
 	dresult.value = "";
-	dista.focus();
+	dinput.focus();
 
 //Beginning of kilometer
 	if (one=="kilometer" && two=="kilometer"){
@@ -304,8 +304,8 @@
 	if(one=="Meter" && two=="Mile"){
 		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(0.00062137119223733))+"mi";}
 
-	if(one=="Meter" && two=="Kilometer"){
-		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(0.001))+"km";}
+	if(one=="Meter" && two=="kilometer"){
+		 		dresult.value = parseFloat(parseFloat(dinput.value)*(0.001))+ "km";}
 
 	if(one=="Meter" && two=="Meter"){
 		 		dresult.value =  parseFloat(dinput.value) +"m";}
@@ -466,39 +466,40 @@ if (dinput.value==""){
 
 <!--Currency input options-->
 		
-<!-- local box-->
-		<input type="number"  placeholder="Local Amount" id="lamount" title="Please enter Local Amount" onchange="mnynow()"> <br><br>
-<!-- Foreign box-->
-		<input type="number"  placeholder="Foreign Amount"  id="famount"  title="Please enter Foreign Amount" onchange="mnynow()" >
+		<!-- local box-->
+		<input type="number"  placeholder="Local Amount" id="lamount" title="Please enter Local Amount" onkeyup="()"> <br><br>
+		<!-- Foreign box-->
+		<input type="number"  placeholder="Foreign Amount"  id="famount"  title="Please enter Foreign Amount" onkeyup="" >
 
 
 <!-- BEGINNING OF SCRIPT CODE FOR CONVERSION OF CURRENCY -->
 <script type="text/javascript">
+	var fascan=false;
+	var lascan=false;
 	function mnynow(){
 	var lr, fr, la, fa;
 	lr=lrate.value;
 	fr=frate.value;
 	la=lamount.value;
 	fa=famount.value;
-	lrate.focus();
-                     
-    if (la!="" && fa==""){ if (lr =="" || fr ==""){alert("The value of both Local and Foreign rate are required");
-														                    fa=="";
-														                    la=="";}
-                   			 if(lr !="" && fr !=""){
-                   			 famount.value =parseFloat((parseFloat(la)*parseFloat(fr)/parseFloat(lr)));
-                   			  }
-                   		  } 
 
-    if (fa!='' && la==""){ if(lr =="" ||fr ==""){alert("The value of both Local and Foreign rate are required");
-                    fa=="";
-                    la=="";}
-    						if(lr !="" && fr !=""){lamount.value=parseFloat((parseFloat(lr)*parseFloat(fa)/parseFloat(fr)));}                
-    					  }
-					
-	if (la=="" && fa=="") {alert( "Plesae  enter both Rates and the Amount you want to convert");}
+	if (fascan){if (la!="" && fa!=""){ famount.value==""; famount.value =parseFloat((parseFloat(la)*parseFloat(fr)/parseFloat(lr))); lamount.focus();} }
+	if (lascan){if (la!="" && fa!=""){ lamount.value==""; lamount.value=parseFloat((parseFloat(lr)*parseFloat(fa)/parseFloat(fr))); famount.focus();};}
 
-	 				}
+	 if (lr!="" && fr!="") { if (la!="" && fa==""){famount.value =parseFloat((parseFloat(la)*parseFloat(fr)/parseFloat(lr)));
+												fascan=true; lamount.focus();} 
+
+							if (la=="" && fa!="") {lamount.value=parseFloat((parseFloat(lr)*parseFloat(fa)/parseFloat(fr)));
+												lascan=true;	famount.focus();}
+
+							if (la=="" && fa==""){alert("Please input the Amount to be converted")}
+						   } 
+	
+	
+
+	if (lr=="" || fr=="") {alert("Both rates are  required"); la==""; fa==""; lrate.focus();}
+																}
+	 				
 </script> 
 	<br><br><br>
    		 <button style="margin-left: 70px;" type="button" onclick="mnynow()" >Convert Now!</button> 
@@ -515,7 +516,7 @@ if (dinput.value==""){
 			<option>Milligram</option>
 		</select>
 <!--Weight input box-->
-		<input type="number" id="minput" onchange="massnow()"> <br><br>
+		<input type="number" id="minput" onkeyup="massnow()"> <br><br>
 
 <!--Weight output options-->
 		<select id="massb" onchange="massnow()">
