@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<script type="text/javascript" src="conversion.js"></script>
+<!-- 	<script type="text/javascript" src="conversion.js"></script> -->
 <title>BASIC TEMPERATURE CONVERTER</title>
 <style>
 	#converter{
@@ -143,7 +143,7 @@
 	<div id="dist" style="display:  none">
 <!--Distance input options-->
 		<select id="dista" onchange="distnow()">
-			<option>kilometer</option>
+			<option>Kilometer</option>
 			<option>Inch</option>
 			<option>Mile</option>
 			<option>Feet</option>
@@ -157,7 +157,7 @@
 
 <!--Distance output options-->
 		<select id=distb onchange="distnow()">
-			<option>kilometer</option>
+			<option>Kilometer</option>
 			<option>Inch</option>
 			<option>Mile</option>
 			<option>Feet</option>
@@ -178,29 +178,29 @@
 	dresult.value = "";
 	dinput.focus();
 
-//Beginning of kilometer
-	if (one=="kilometer" && two=="kilometer"){
+//Beginning of Kilometer
+	if (one=="Kilometer" && two=="Kilometer"){
 		 		dresult.value = parseFloat(dinput.value) +"km";}
 
-	if (one=="kilometer" && two=="Inch"){
+	if (one=="Kilometer" && two=="Inch"){
 		 		dresult.value =  parseFloat(parseFloat(dinput.value) *(39370.078740157)) +"in";}
 
-	if (one=="kilometer" && two=="Mile"){
+	if (one=="Kilometer" && two=="Mile"){
 		 		dresult.value =  parseFloat(parseFloat(dinput.value) *(0.6213711922) ) +"mi";}	 
 
-	if (one=="kilometer" && two=="Feet"){
+	if (one=="Kilometer" && two=="Feet"){
 		 		dresult.value =  parseFloat(parseFloat(dinput.value) *(3280.8398950131))+"ft";}
 
-	if(one=="kilometer" && two=="Meter"){
+	if(one=="Kilometer" && two=="Meter"){
 		 		dresult.value =  parseFloat(parseFloat(dinput.value) *1000)+"m";}
 
-	if(one=="kilometer" && two=="Centimeter"){
+	if(one=="Kilometer" && two=="Centimeter"){
 		 		dresult.value = parseFloat(parseFloat(dinput.value)*(100000)) + "cm";}
 
-	if(one=="kilometer" && two=="Millimeter"){
+	if(one=="Kilometer" && two=="Millimeter"){
 		 		dresult.value = parseFloat(parseFloat(dinput.value)* (1000000)) +"mm";}
 
-	if(one=="kilometer" && two=="Yard"){
+	if(one=="Kilometer" && two=="Yard"){
 		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(1093.6132983377))+"yd";} 
 
 //Beginning of inch		 		 		
@@ -256,10 +256,11 @@
 		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(0.00058681818181818182))+"mi";}
 
 	if(one=="Yard" && two=="Kilometer"){
-		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(0.0009144))+"km";}  
+		 		dresult.value = parseFloat(parseFloat(dinput.value)*(0.0009144))+"km";}
 
 	if(one=="Yard" && two=="Meter"){
-		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(0.9144))+"m";}
+		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(0.9144))+"m";
+		 	}
 
  	if(one=="Yard" && two=="Feet"){
 		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(3))+"ft";}
@@ -279,7 +280,7 @@
 	if(one=="Feet" && two=="Mile"){
 		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(0.000189393939393939394))+"mi";}
 
-	if(one=="Feet" && two=="kilometer"){
+	if(one=="Feet" && two=="Kilometer"){
 		 		dresult.value = parseFloat(parseFloat(dinput.value)*(0.0003048))+"km";}
 
 	if(one=="Feet" && two=="Meter"){
@@ -304,7 +305,7 @@
 	if(one=="Meter" && two=="Mile"){
 		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(0.00062137119223733))+"mi";}
 
-	if(one=="Meter" && two=="kilometer"){
+	if(one=="Meter" && two=="Kilometer"){
 		 		dresult.value = parseFloat(parseFloat(dinput.value)*(0.001))+ "km";}
 
 	if(one=="Meter" && two=="Meter"){
@@ -349,29 +350,29 @@
 
 	if(one=="Centimeter" && two=="Inch"){
 		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(0.39370078740157))+"in";} 
-//Beginning of Milliimeter		 		
-	if(one=="Milliimeter" && two=="Mile"){
+//Beginning of Millimeter		 		
+	if(one=="Millimeter" && two=="Mile"){
 		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(0.00000062137119223733))+"mi";}
 
-	if(one=="Milliimeter" && two=="Kilometer"){
+	if(one=="Millimeter" && two=="Kilometer"){
 		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(0.000001))+"km";}
 
-	if(one=="Milliimeter" && two=="Meter"){
+	if(one=="Millimeter" && two=="Meter"){
 		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(0.001))+"m";}
 
- 	if(one=="Milliimeter" && two=="Feet"){
+ 	if(one=="Millimeter" && two=="Feet"){
 		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(0.0032808398950131))+"ft";}
 
-	if(one=="Milliimeter" && two=="Yard"){
+	if(one=="Millimeter" && two=="Yard"){
 		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(0.0010936132983377))+"yd";}
 
-	if(one=="Milliimeter" && two=="Centimeter"){
+	if(one=="Millimeter" && two=="Centimeter"){
 		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(0.1))+"cm";}	
 
-	if(one=="Milliimeter" && two=="Millimeter"){
+	if(one=="Millimeter" && two=="Millimeter"){
 		 		dresult.value =  parseFloat(dinput.value) +"mm";}
 
-	if(one=="Milliimeter" && two=="Inch"){
+	if(one=="Millimeter" && two=="Inch"){
 		 		dresult.value =  parseFloat(parseFloat(dinput.value)*(0.039370078740157))+"in";}
 
 if (dinput.value==""){
